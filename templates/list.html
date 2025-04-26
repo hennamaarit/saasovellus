@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Säähavainnot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Lisää säähavainto</a>
+        <a href="/lista">Katso tallennetut havainnot</a>
+    </div>
+    <div class="container">
+        <h1>Säähavainnot</h1>
+            <div class="suodatus-laatikko">
+                <h3>Suodatus halutuilla tiedoilla</h3>
+                <form method="GET" action="/lista">
+                    <label for="date">Päivämäärä:</label>
+                    <input type="text" id="date" name="date" placeholder="Esim. 2025-02-28"><br>
+            
+                    <label for="lat">Leveysaste:</label>
+                    <input type="text" id="lat" name="lat"><br>
+            
+                    <label for="lon">Pituusaste:</label>
+                    <input type="text" id="lon" name="lon"><br>
+
+                    <label for="temp">Lämpötila:</label>
+                    <input type="text" id="temp" name="temp"><br>
+            
+                    <label for="huomio">Havainto:</label>
+                    <input type="text" id="huomio" name="huomio"><br>
+            
+                    <button type="submit" class="suodatus-nappi">Suodata</button>
+                </form>
+            </div>
+            <ul>
+                {% for s in tiedot %}
+                    <li>
+                        <strong>{{ s.paivays }}</strong><br>
+                        Koordinaatit: ({{ s.lat }}, {{ s.lon }})<br>
+                        Lämpötila: {{ s.lampotila }} °C<br>
+                        Huomio: {{ s.huomio }}
+                        <hr>
+                    </li>
+                {% else %}
+                    <p>Ei havaintoja.</p>
+                {% endfor %}
+                </ul>
+        <a href="/">Takaisin lomakkeeseen</a>
+    </div>
+</body>
+</html>

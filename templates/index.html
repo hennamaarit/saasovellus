@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lisää säähavainto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Lisää säähavainto</a>
+        <a href="/lista">Katso tallennetut havainnot</a>
+    </div>
+
+    <div class="container">
+        <h1>Lisää säähavainto</h1>
+        <form method="POST" action="/lisaa">
+            <label for="datetime">Valitse ajankohta:</label>
+            <input type="datetime-local" id="datetime" name="datetime"><br>
+       
+            <label>Leveyspiiri (lat):</label>
+            <input type="text" name="lat" required>
+        
+            <label>Pituuspiiri (lon):</label>
+            <input type="text" name="lon" required>
+        
+            <label>Lämpötila (°C):</label>
+            <input type="text" name="lampotila" required>
+        
+            <label>Sääkuvaus:</label>
+            <input type="text" name="huomio" required>
+        
+            <input type="submit" value="Tallenna">
+        </form>        
+        <a href="/lista">Katso tallennetut tiedot</a>
+    </div>
+</body>
+</html>
