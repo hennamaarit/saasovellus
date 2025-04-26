@@ -35,10 +35,10 @@ input[type="date"] {
 }
 
 h1 {
+    font-size: 2em;
     text-align: center;
     color: #00796b;
 }
-
 form label {
     display: block;
     margin-top: 10px;
@@ -139,7 +139,7 @@ a:hover {
 
 .suodatus-nappi {
     width: 100%;
-    background-color: #007bff;
+    background-color: #10a594;
     color: white;
     padding: 12px;
     border: none;
@@ -151,7 +151,29 @@ a:hover {
 }
 
 .suodatus-nappi:hover {
-    background-color: #0056b3;
+    background-color: #10a594;
+}
+button {
+    transition: background-color 0.2s ease-in-out; /* Lisätään sulava taustavärin muutos */
+}
+
+button:hover {
+    animation: hoverEffect 0.2s ease-in-out;
+}
+
+@keyframes hoverEffect {
+    0% {
+        transform: scale(1);
+        background-color: #10a594; /* Alkuperäinen taustaväri */
+    }
+    50% {
+        transform: scale(1.05); /* Vähemmän skaalausta kuin ennen */
+        background-color: #004d40; /* Tumma väri hover-tilassa */
+    }
+    100% {
+        transform: scale(1); /* Palaa alkuperäiseen kokoon */
+        background-color: #00796b; /* Palaa alkuperäiseen väriin */
+    }
 }
 
 /* Responsiivisuus */
